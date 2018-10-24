@@ -2,8 +2,6 @@ package com.example.stuffstore.controller;
 
 import com.example.stuffstore.entity.Product;
 import com.example.stuffstore.repository.ProductRepo;
-import com.example.stuffstore.entity.Product;
-import com.example.stuffstore.repository.ProductRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

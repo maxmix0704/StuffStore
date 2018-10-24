@@ -12,7 +12,7 @@ Main page
 <h3>Add product</h3>
 <div>
     <form action="/addProduct" method="post">
-        <input type="text" placeholder="username" name="username"/>
+        <input type="text" placeholder="name" name="name"/>
         <input type="text" placeholder="discription" name="discription"/>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <input type="submit" name="submit" value="Add"/>
