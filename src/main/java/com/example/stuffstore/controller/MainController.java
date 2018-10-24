@@ -16,7 +16,9 @@ public class MainController {
     ProductRepo productRepo;
 
     @GetMapping("/")
-    public String getMainPage(){
+    public String getMainPage(Model model){
+        Iterable<Product> products = productRepo.findAll();
+        model.addAttribute("products",products);
         return "home";
     }
     @GetMapping("/login")

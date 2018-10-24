@@ -1,13 +1,11 @@
-<html>
-<head>
-    <title>Home</title>
-</head>
-<div>
-    <form action="/logout" method="post">
-        <input type="submit" value="Sign out"/>
-        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-    </form>
-</div>
+<#import "parts/common.ftl" as c>
+<@c.page>
+    <div>
+        <form action="/logout" method="post">
+            <input type="submit" value="Sign out"/>
+            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+        </form>
+    </div>
 Main page
 <h3>Add product</h3>
 <div>
@@ -26,9 +24,7 @@ Main page
         <div>
             ${product.discription}
         </div>
-
     </#list>
 </div>
+</@c.page>
 
-</body>
-</html>

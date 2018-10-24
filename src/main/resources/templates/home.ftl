@@ -1,18 +1,16 @@
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
+<#import "parts/common.ftl" as c>
+<#import "parts/login.ftl" as l>
+
+<@c.page>
+    Home page
 <div>
-    <form action="/login" method="get">
-        <input type="submit" value="Login"/>
-    </form>
+    <#list products as product>
+        <div>
+            ${product.name}
+        </div>
+        <div>
+            ${product.discription}
+        </div>
+    </#list>
 </div>
-<div>
-    <form action="/registration" method="get">
-        <input type="submit" value="Registration"/>
-    </form>
-</div>
-Home page
-</body>
-</html>
+</@c.page>
