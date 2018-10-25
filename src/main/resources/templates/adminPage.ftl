@@ -11,4 +11,6 @@
             <input type="submit" name="submit" value="Add"/>
         </form>
     </div>
+    View List of User
+    <a href="/admin/userList">UserList</a>
 </@c.page>

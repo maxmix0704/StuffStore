@@ -59,24 +59,12 @@ public class MainController {
         productRepo.save(product);
         Iterable<Product> products = productRepo.findAll();
         model.addAttribute("products",products);
-        return "main";
+        return "redirect:/admin";
     }
 
-    @GetMapping("/main")
-    public String getMain(Model model){
-        Iterable<Product> products = productRepo.findAll();
-        model.addAttribute("products",products);
-        return "main";
-    }
-
-    @GetMapping("/adminpage")
-    public String getAdminPage(Model model){
-        return "adminpage";
-    }
-
-    @RequestMapping("/logout")
-    public String getLogout(){
-        return "main";
-    }
+//    @RequestMapping("/logout")
+//    public String getLogout(){
+//        return "redirect:/";
+//    }
 
 }
