@@ -2,7 +2,9 @@
 <#import "parts/registration.ftl" as r>
 
 <@c.page>
-    Registration new user
+<div class="col mt-3 md-6">
+    <h3>Registration new user</h3>
+</div>
     <@r.registration>
     </@r.registration>
 </@c.page>

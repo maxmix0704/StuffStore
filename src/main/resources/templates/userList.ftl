@@ -1,7 +1,9 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
-<h3>List of user</h3>
+<div class="col mt-3 md-6">
+   <h3>List of user</h3>
+</div>
 <table class="table table-bordered">
     <thead class="thead-dark">
     <tr>
