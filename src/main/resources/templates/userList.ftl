@@ -1,6 +1,8 @@
 <#import "parts/common.ftl" as c>
 
 <@c.page>
+    <#include "parts/tab.ftl">
+
 <div class="col mt-3 md-6">
    <h3>List of user</h3>
 </div>

@@ -50,8 +50,8 @@ public class UserController {
         return "adminPage";
     }
 
-    @PostMapping("/addProduct")
-    public String addProduct(@RequestParam String name,
+    @PostMapping("/productList/addProduct")
+    public String addNewProduct(@RequestParam String name,
                              @RequestParam String discription,
                              @RequestParam String category_id,
                              @RequestParam Float price,
@@ -73,9 +73,74 @@ public class UserController {
             product.setFilename(resultFilename);
         }
         productRepo.save(product);
+        return "redirect:/admin/productList";
+    }
+
+    @GetMapping("/productList")
+    public String getProductList(Model model){
         Iterable<Product> products = productRepo.findAll();
         model.addAttribute("products",products);
-        return "redirect:/admin";
+        return "productList";
+    }
+
+    @GetMapping("/productList/addProduct")
+    public String getAddProductForm(Model model){
+        Iterable<Category> categories = categoryRepo.findAll();
+        model.addAttribute("categories",categories);
+        return "productAdd";
+    }
+
+    @GetMapping("/productList/{product}")
+    public String productEditForm(@PathVariable Product product, Model model){
+        model.addAttribute("product",product);
+        Iterable<Category> categories = categoryRepo.findAll();
+        model.addAttribute("categories",categories);
+        return "productEdit";
+    }
+
+    @GetMapping("/categoriesList")
+    public String getCategoriesList(Model model){
+        Iterable<Category> categories = categoryRepo.findAll();
+        model.addAttribute("categories",categories);
+        return "categList";
+    }
+
+    @GetMapping("/categoriesList/addCategory")
+    public String getAddCategoryForm(){
+        return "categoryAdd";
+    }
+
+    @GetMapping("/categoriesList/{category}")
+    public String categoryEditForm(@PathVariable Category category, Model model){
+        model.addAttribute("category",category);
+        return "categoryEdit";
+    }
+
+    @PostMapping("/categoriesList/{category}")
+    public String categoryEdit(
+            @RequestParam Long id,
+            @RequestParam String category){
+        Category categoryDb = categoryRepo.findById(id).get();
+        categoryDb.setCategory(category);
+        categoryRepo.save(categoryDb);
+        return "redirect:/admin/categoriesList";
+    }
+    @PostMapping("/productList/{product}")
+    public String productEdit(
+            @RequestParam Long id,
+            @RequestParam String name,
+            @RequestParam String discription,
+            @RequestParam String category_id,
+            @RequestParam Float price
+    ){
+        Product product = productRepo.findById(id).get();
+        Category category = categoryRepo.findById(Long.valueOf(category_id)).get();
+        product.setName(name);
+        product.setDiscription(discription);
+        product.setCategory(category);
+        product.setPrice(price);
+        productRepo.save(product);
+        return "redirect:/admin/productList";
     }
 
 
@@ -85,6 +150,7 @@ public class UserController {
         model.addAttribute("roles", Role.values());
         return "userEdits";
     }
+
     @PostMapping("/userList")
     public String userSave(
             @RequestParam("userName") String username,
@@ -108,15 +174,15 @@ public class UserController {
         return "redirect:/admin/userList";
     }
 
-    @PostMapping("/addCategory")
-    public String addCategory(@RequestParam String categoryName,
+    @PostMapping("/categoriesList/addCategory")
+    public String addCategory(@RequestParam String category,
                               Model model) throws IOException
     {
-        Category category = new Category();
-        if (!categoryName.isEmpty()) {
-            category.setCategory(categoryName);
-            categoryRepo.save(category);
+        Category categoryBuf = new Category();
+        if (!category.isEmpty()) {
+            categoryBuf.setCategory(category);
+            categoryRepo.save(categoryBuf);
         }
-        return "redirect:/admin";
+        return "redirect:/admin/categoriesList";
     }
 }
