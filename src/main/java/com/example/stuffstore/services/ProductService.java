@@ -54,4 +54,8 @@ public class ProductService {
         Product product = productRepo.findById(id).get();
         productRepo.delete(product);
     }
+
+    public Iterable<Product> getProductsByCategory(String category){
+         return productRepo.findProductsByCategory_Category(category);
+    }
 }

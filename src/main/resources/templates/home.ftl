@@ -2,10 +2,24 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
-    <div class="row m-3 justify-content-md-center">
-        <h3>Home page</h3>
-    </div>
-    <div class="card-columns">
+    <div class="row">
+        <div class="col-2">
+            <div class="list-group mt-5">
+                <#list categories as category>
+                    <a href="filter?filter=${category.category}" class="list-group-item list-group-item-action ">${category.category}</a>
+                </#list>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="row m-3 justify-content-md-center">
+                <h3>Home page</h3>
+            </div>
+        <#if message??>
+            <div class="row m-3 justify-content-md-center">
+                <h3>${message}</h3>
+            </div>
+        </#if>
+            <div class="card-columns">
         <#list products as product>
             <div class="card" style="width: 18rem;">
             <#if product.filename??>
@@ -25,5 +39,8 @@
                 </div>
             </div>
         </#list>
+            </div>
+        </div>
     </div>
+
 </@c.page>
