@@ -15,6 +15,7 @@
         <th>Category</th>
         <th>Price</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
             <td><#if product.category??>${product.category.category}<#else>none</#if></td>
             <td><#if product.price??>${product.price}<#else>none</#if></td>
             <td><a href="/admin/productList/${product.id}">edit</a></td>
+            <td><a href="/admin/productList/delete/${product.id}">delete</a></td>
         </tr>
         </#list>
     </tbody>

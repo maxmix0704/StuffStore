@@ -7,8 +7,8 @@
              <input type="hidden" name="_csrf" value="${_csrf.token}"/>
              <input type="hidden" value="${category.id}" name="id"/>
              <div class="form-group col-md-6">
-                 <label for="category">Category</label>
-                 <input type="text" class="form-control" id = "category" name="category" value="${category.category}"/>
+                 <label for="categoryName">Category</label>
+                 <input type="text" class="form-control" id = "categoryName" name="categoryName" value="${category.category}"/>
              </div>
              <div class="form-group col-md-4">
                  <input  type="submit" class="btn btn-primary" name="submit" value="Edit"/>

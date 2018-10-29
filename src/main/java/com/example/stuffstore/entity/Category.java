@@ -10,7 +10,7 @@ public class Category {
     private Long id;
     private String category;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     private Set<Product> products;
 
     public Category() {}

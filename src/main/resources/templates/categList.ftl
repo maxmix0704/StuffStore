@@ -13,6 +13,7 @@
         <th>Id</th>
         <th>Category</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
             <td>${category.id}</td>
             <td>${category.category}</td>
             <td><a href="/admin/categoriesList/${category.id}">edit</a></td>
+            <td><a href="/admin/categoriesList/delete/${category.id}">delete</a></td>
         </tr>
         </#list>
     </tbody>

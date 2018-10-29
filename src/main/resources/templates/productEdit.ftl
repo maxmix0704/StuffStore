@@ -34,7 +34,8 @@
                         <input type="file" class="form-control-file" name="file">
                     </div>
                     <div class="form-group col-md-4">
-                        <input  type="submit" class="btn btn-primary" name="submit" value="Add"/>
+                        <input  type="submit" class="btn btn-primary" name="submit" value="Save"/>
+                        <a class="btn btn-secondary" href="/admin/productList" role="button">Back</a>
                     </div>
                 </div>
 
